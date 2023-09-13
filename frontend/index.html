@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
+    <title>Code Convertor</title>
+</head>
+<body>
+    <div id="main-box">
+        <h1 style="text-align: center; color: white;">Code Player</h1>
+        <div id="buttons">
+            <select id="language">
+                <option value="">Select Language</option>
+                <option value="Python">Python</option>
+                <option value="Java">Java</option>
+                <option value="Javascript">Javascript</option>
+            </select>
+            <button id="convert">Convert</button>
+            <button id="debug">Debug</button>
+            <button id="quality-check">Quality Check</button>
+        </div><br>
+        <div id="container">
+            <div id="editor"></div>
+            <!-- <div>
+                <div id="editor"></div>
+                <label for="languageSelect">Select Programming Language:</label>
+                    <select id="languageSelect">
+                        <option value="javascript">JavaScript</option>
+                        <option value="python">Python</option>
+                        <option value="java">Java</option>
+                    </select>
+            </div> -->
+            <div class="output-container">
+                <pre id="converted-code">Output comes here...</pre>
+            </div>
+        </div>
+        <footer>Created by - Dharamveer😉</footer>
+    </div>
+</body>
+<script src="./script.js"></script>
+<!-- Include the Ace Editor JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
+
+<!-- Include the Ace Editor theme and mode (e.g., JavaScript) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/theme-monokai.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/mode-javascript.js"></script>
+
+<script>
+    let editor = ace.edit("editor");
+    editor.setTheme("ace/theme/monokai"); // Set the theme (you can choose other themes)
+    editor.session.setMode("ace/mode/javascript");
+
+    var placeholderText = "//Write your code here...";
+
+        // Set the initial content to the placeholder
+        editor.setValue(placeholderText, 1);
+
+        // Handle editor focus and blur events
+        editor.on("focus", function() {
+            // Clear the placeholder text when the editor gains focus
+            if (editor.getValue() === placeholderText) {
+                editor.setValue("", 1);
+            }
+        });
+
+        editor.on("blur", function() {
+            // Restore the placeholder text when the editor loses focus and is empty
+            if (editor.getValue() === "") {
+                editor.setValue(placeholderText, 1);
+            }
+        });
+</script>
+</html>
