@@ -13,7 +13,7 @@ function convertCode(){
     const code = editor.getValue();
     const language = selectLanguage.value;
 
-    if (code === '') {
+    if (code === "//Write your code here...") {
         Swal.fire({
             icon: 'error',
             title: 'Editor cannot be empty',
