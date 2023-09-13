@@ -32,7 +32,7 @@ function convertCode(){
         // loader.style.display = 'block'; // Show loader
         // quoteElement.style.display = 'none';
 
-        fetch(`http://localhost:3000/convert`,{
+        fetch(`https://code-generator-fbiy.onrender.com/convert`,{
             method: 'POST',
             headers : {'Content-Type': 'application/json'},
             body : JSON.stringify({"code":code, "language":language})
@@ -76,7 +76,7 @@ function debugCode(){
         // loader.style.display = 'block'; // Show loader
         // quoteElement.style.display = 'none';
 
-        fetch(`http://localhost:3000/debug`,{
+        fetch(`https://code-generator-fbiy.onrender.com/debug`,{
             method: 'POST',
             headers : {'Content-Type': 'application/json'},
             body : JSON.stringify({"code":code})
@@ -108,7 +108,7 @@ function debugCode(){
 function qualityCheck(){
     const code = editor.getValue();
     console.log(code)
-    if (code === '') {
+    if (code === placeholderText) {
         Swal.fire({
             icon: 'error',
             title: 'Editor cannot be empty',
@@ -120,7 +120,7 @@ function qualityCheck(){
         // loader.style.display = 'block'; // Show loader
         // quoteElement.style.display = 'none';
 
-        fetch(`http://localhost:3000/quality`,{
+        fetch(`https://code-generator-fbiy.onrender.com/quality`,{
             method: 'POST',
             headers : {'Content-Type': 'application/json'},
             body : JSON.stringify({"code":code})
