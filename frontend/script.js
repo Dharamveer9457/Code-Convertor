@@ -39,8 +39,6 @@ function convertCode(){
         })
         .then((response) => response.json())
         .then((data) => {
-
-            console.log(data.convertedCode);
             outputRes.innerHTML = `Output:- \n ${data.convertedCode}`
             // loader.style.display = 'none';
             // quoteElement.style.display = 'block';
@@ -63,8 +61,8 @@ function convertCode(){
 
 function debugCode(){
     const code = editor.getValue();
-
-    if (code === '') {
+    
+    if (code === "//Write your code here...") {
         Swal.fire({
             icon: 'error',
             title: 'Editor cannot be empty',
@@ -83,8 +81,6 @@ function debugCode(){
         })
         .then((response) => response.json())
         .then((data) => {
-
-            console.log(data.debuggedCode);
             outputRes.innerHTML = `Output:- \n ${data.debuggedCode}`
             // loader.style.display = 'none';
             // quoteElement.style.display = 'block';
@@ -107,8 +103,7 @@ function debugCode(){
 
 function qualityCheck(){
     const code = editor.getValue();
-    console.log(code)
-    if (code === placeholderText) {
+    if (code === "//Write your code here...") {
         Swal.fire({
             icon: 'error',
             title: 'Editor cannot be empty',
@@ -127,8 +122,6 @@ function qualityCheck(){
         })
         .then((response) => response.json())
         .then((data) => {
-
-            console.log(data.checkedCode);
             outputRes.innerHTML = `Output:- \n ${data.checkedCode}`
             // loader.style.display = 'none';
             // quoteElement.style.display = 'block';
